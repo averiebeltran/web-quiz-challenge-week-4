@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.high-score {
+    color: rgb(241, 18, 156);
+}
+
+.page-content {
+    width: 600px;
+    margin:0 auto;
+}
+
+.page-start {
+    text-align: center;
+
+}
+
+.page-start h1 {
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.page-start p {
+    font-size: 18px;
+}
+
+.page-start button {
+    background-color: rgb(241, 18, 156);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    border-color:rgb(241, 18, 156);
+}
+
+.quiz {
+    display: none;
+}
+
+.question {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.answers {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.answers li {
+    color: white;
+    background-color:rgb(241, 18, 156);
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+
+}
+
+.answer {
+    border-top: 1px solid gray;
+    padding: 10px;
+    font-size: 18px;
+    color: gray;
+}
+
+.end-quiz {
+    display:none;
+}
+
+.end-quiz h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.end-quiz p {
+    font-size: 18px;
+}
+
+.end-quiz form {
+    font-size: 18px;
+}
+
+.end-quiz form input {
+    padding: 5px;
+}
+
+.end-quiz form button {
+    color: white;
+    background-color: rgb(241, 18, 156);
+    border-radius: 5px;
+    border-color: rgb(241, 18, 156);
+    padding: 5px;
+}
+
