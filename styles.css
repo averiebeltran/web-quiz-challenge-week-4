@@ -1,0 +1,64 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.high-score {
+    color: hotpink
+}
+
+.page-content {
+    width: 600px;
+    margin:0 auto;
+}
+
+.page-start {
+    display: none;
+    text-align: center;
+
+}
+
+.page-start h1 {
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.page-start p {
+    font-size: 18px;
+}
+
+.page-start button {
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.quiz {
+    /* display: none; */
+}
+
+.question {
+    font-size: 25px;
+}
+
+.answers {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.answers li {
+    color: white;
+    background-color: hotpink;
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.end-quiz {
+    display:none;
+}

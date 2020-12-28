@@ -6,34 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Taskinator</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
     <header>
-        <div>View high score</div>
-        <div></div>
+        <div class="high-score">View high score</div>
+        <div class="time">Time</div>
     </header>
 
     <main class="page-content" id="page-content">
-        <div>
-            <div>Coding Quiz Challenge</div>
-            <div>Try to answer the following code-related questions within the time limnit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
-            <button>Star Quiz</button>
+        <div class="page-start">
+            <h1>Coding Quiz Challenge</h1>
+            <p>
+                Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+            <button>Start Quiz</button>
         </div>
-        <div>
-            <div>Question</div>
-            <div>Answers</div>
-            <div>Right or Wrong</div>
+
+        <div class="quiz">
+            <h2 class="question">Question</h2>
+            <ul class="answers">
+                <li>
+                    strings
+                </li>
+            </ul>
+            <div class="answer">Right or Wrong</div>
         </div>
-        <div>
+
+        <div class="end-quiz">
             <div>All Done </div>
-        <p>Your final score is</p>
-        <form>
-            <label>Enter Initials:</label>
-            <input />
-            <button></button>
-        </form>
+            <p>Your final score is</p>
+            <form>
+                <label>Enter Initials:</label>
+                <input />
+                <button></button>
+            </form>
         </div>
     </main>
 
