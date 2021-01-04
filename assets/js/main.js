@@ -63,7 +63,9 @@ window.addEventListener('DOMContentLoaded', () => {
 	];
 
 	// global variables
-	i = 0;
+	let i = 0;
+	let correctAnswers = 0;
+	let wrongAnswers = 0;
 	const answers = document.querySelector(".answers");
 
 	// display questions when start button is clicked
@@ -77,6 +79,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// function to display quiz
 	function displayQuestion() {
+		console.log(i);
 		const question = document.querySelector(".question");
 
 		question.innerHTML = myQuestions[i].question;
@@ -84,7 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		for (const answer in myQuestions[i].answers) {
 			const node = document.createElement("li");
 			answers.appendChild(node);
-			const singleAnswer = `${answer}. ${myQuestions[0].answers[answer]}`;
+			const singleAnswer = `${answer}. ${myQuestions[i].answers[answer]}`;
 			node.innerHTML = singleAnswer;
 		}
 
@@ -105,8 +108,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		if (userAnswer[0] === correctAnswer) {
 			displayAnswer.innerHTML = "Correct!"
+			correctAnswers++;
 		} else {
 			displayAnswer.innerHTML = "Incorrect!"
+			wrongAnswers++;
 		}
 
 		displayAnswer.classList.toggle('hide');
@@ -118,10 +123,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	function displayNextQuestion(displayAnswer) {
 		displayAnswer.classList.toggle('hide');
-
-		i++;
-		displayQuestion();
+		answers.innerHTML = '';
+		if (i <= 4) {
+			i++;
+			displayQuestion();
+		} else {
+			enterScore();
+		}
 	}
 
+	function enterScore() {
+		document.querySelector(".quiz").classList.add("hide");
+		document.querySelector(".end-quiz").classList.remove("hide");
+		document.querySelector('.end-quiz p').innerHTML = "Your final score is: " + correctAnswers + "/6";
 
+		const submit = document.getElementById("submit");
+		submit.addEventListener('click', (e) => {
+			e.preventDefault();
+			const userInput = document.getElementById('username').value;
+			localStorage.setItem('user', userInput);
+		});
+	}
 });
