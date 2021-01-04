@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
 	const myQuestions = [
 		{
 			question: "1. What does CSS stand for?",
@@ -62,9 +62,66 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		}
 	];
 
+	// global variables
+	i = 0;
+	const answers = document.querySelector(".answers");
+
+	// display questions when start button is clicked
 	const start = document.getElementById("start");
 	start.addEventListener("click", () => {
 		document.querySelector(".page-start").classList.add("hide");
 		document.querySelector(".quiz").classList.remove("hide");
-	})
+
+		displayQuestion();
+	});
+
+	// function to display quiz
+	function displayQuestion() {
+		const question = document.querySelector(".question");
+
+		question.innerHTML = myQuestions[i].question;
+
+		for (const answer in myQuestions[i].answers) {
+			const node = document.createElement("li");
+			answers.appendChild(node);
+			const singleAnswer = `${answer}. ${myQuestions[0].answers[answer]}`;
+			node.innerHTML = singleAnswer;
+		}
+
+		const choices = document.querySelectorAll('.answers li');
+
+		for (const element of choices) {
+			element.addEventListener('click', () => {
+				const correctAnswer = myQuestions[i].correctAnswer;
+				validateAnswer(correctAnswer, element);
+			});
+		}
+	}
+
+	function validateAnswer(correctAnswer, element) {
+		const selectedAnswer = element.innerHTML;
+		const userAnswer = selectedAnswer.split('.');
+		const displayAnswer = document.querySelector(".answer");
+
+		if (userAnswer[0] === correctAnswer) {
+			displayAnswer.innerHTML = "Correct!"
+		} else {
+			displayAnswer.innerHTML = "Incorrect!"
+		}
+
+		displayAnswer.classList.toggle('hide');
+
+		setTimeout(function() {
+			displayNextQuestion(displayAnswer);
+		}, 2000);
+	}
+
+	function displayNextQuestion(displayAnswer) {
+		displayAnswer.classList.toggle('hide');
+
+		i++;
+		displayQuestion();
+	}
+
+
 });
