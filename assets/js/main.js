@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			answers:{
 				a: "numbers & strings",
 				b: "other arrays",
-				c: "brooleans",
+				c: "booleans",
 				d: "all of the both"
 			},
 			correctAnswer: "d"
@@ -66,7 +66,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	let i = 0;
 	let correctAnswers = 0;
 	let wrongAnswers = 0;
+	let timer = 75;
+	let countdown;
 	const answers = document.querySelector(".answers");
+	const time = document.querySelector('.time');
+	time.innerHTML = "Time: " + timer;
+
 
 	// display questions when start button is clicked
 	const start = document.getElementById("start");
@@ -74,14 +79,22 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.querySelector(".page-start").classList.add("hide");
 		document.querySelector(".quiz").classList.remove("hide");
 
+		countdown = setInterval(function() {
+			timer--;
+			time.innerHTML = "Time: " + timer;
+
+			if (timer === 0) {
+				clearInterval(countdown);
+				enterScore();
+			}
+		}, 1000);
+
 		displayQuestion();
 	});
 
 	// function to display quiz
 	function displayQuestion() {
-		console.log(i);
 		const question = document.querySelector(".question");
-
 		question.innerHTML = myQuestions[i].question;
 
 		for (const answer in myQuestions[i].answers) {
@@ -112,6 +125,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		} else {
 			displayAnswer.innerHTML = "Incorrect!"
 			wrongAnswers++;
+			timer = timer - 5;
 		}
 
 		displayAnswer.classList.toggle('hide');
@@ -128,6 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			i++;
 			displayQuestion();
 		} else {
+			clearInterval(countdown);
 			enterScore();
 		}
 	}
@@ -141,7 +156,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		submit.addEventListener('click', (e) => {
 			e.preventDefault();
 			const userInput = document.getElementById('username').value;
-			localStorage.setItem('user', userInput);
+			const scores = [correctAnswers, userInput];
+			localStorage.setItem('score', JSON.stringify(scores));
+			window.location.href='./high-scores.html';
 		});
 	}
 });
