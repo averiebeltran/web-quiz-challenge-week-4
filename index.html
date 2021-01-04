@@ -5,38 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Taskinator</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/home.css">
 </head>
 
 <body>
     <header>
-        <div>View high score</div>
-        <div></div>
+        <a href="high-scores.html" class="high-score">View Scores</a>
+        <div class="time"></div>
     </header>
 
     <main class="page-content" id="page-content">
-        <div>
-            <div>Coding Quiz Challenge</div>
-            <div>Try to answer the following code-related questions within the time limnit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
-            <button>Star Quiz</button>
+        <div class="page-start">
+            <h1>Coding Quiz Challenge</h1>
+            <p>
+                Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+            <button id="start">Start Quiz</button>
         </div>
-        <div>
-            <div>Question</div>
-            <div>Answers</div>
-            <div>Right or Wrong</div>
+
+        <div class="quiz hide">
+            <h2 class="question"></h2>
+            <ul class="answers"></ul>
+            <div class="answer hide"></div>
         </div>
-        <div>
-            <div>All Done </div>
-        <p>Your final score is</p>
-        <form>
-            <label>Enter Initials:</label>
-            <input />
-            <button></button>
-        </form>
+
+        <div class="end-quiz hide">
+            <h2>All Done!</h2>
+            <p></p>
+            <form>
+                <label>Enter Initials:</label>
+                <input type="text" id="username" />
+                <button id="submit">Submit</button>
+            </form>
         </div>
     </main>
 
-	<script src="./script.js"></script>
+	<script src="./assets/js/main.js"></script>
 </body>
 </html>
